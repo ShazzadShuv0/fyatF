@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FYAT - Phoenix</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+    <!-- Authentication check script - MUST be at the very top of the body -->
+    <script>
+        // This script runs immediately to check login status before rendering content
+        if (!sessionStorage.getItem('loggedInStudentId')) {
+            window.location.href = 'login.html';
+        }
+    </script>
+
+    <header class="navbar">
+        <div class="logo">FYAT - Phoenix</div>
+        <div class="subtitle">Your Academic Supporter </div>
+        <div class="status">
+            <span class="status-indicator active"></span> Active
+        </div>
+    </header>
+
+    <div class="container">
+        <aside class="sidebar">
+            <nav>
+                <ul>
+                    <li><a href="index.html" class="active"><span class="material-icons">home</span> Home</a></li>
+                    <li><a href="important-dates.html"><span class="material-icons">event</span> Important Dates</a></li>
+                    <li><a href="academic-procedures.html"><span class="material-icons">school</span> Academic Procedures</a></li>
+                    <li><a href="https://bracu-vault.vercel.app/" target="_blank"><span class="material-icons">description</span> Academic Resources</a></li>
+                    <li><a href="cgpa-calculator.html"><span class="material-icons">calculate</span> CGPA Calculator</a></li>
+                    <li><a href="scholarship.html" ><span class="material-icons">monetization_on</span> Scholarship </a></li>
+                    <li><a href="Probation.html" ><span class="material-icons">warning_amber</span> Probation </a></li>
+                    <li><a href="faq.html"><span class="material-icons">help_outline</span> FAQ</a></li>
+                    <li><a href="contact-me.html"><span class="material-icons">mail_outline</span> Contact </a></li>
+                    <!-- Logout button -->
+                    <li><a href="login.html" id="logout-btn"><span class="material-icons">logout</span> Logout</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <section class="welcome-banner">
+                <h2>Welcome to Brac University! 🎓</h2>
+                <p>Hi! I'm your FYAT mentor, MD Shazzad Ahammed Shuvo. Find everything you need - from important dates to CGPA calculations - all in one place.</p>
+            </section>
+
+            <section class="latest-announcements card">
+                <h3><span class="material-icons">campaign</span> Latest Announcements</h3>
+
+                <div class="announcement-item info">
+                    <span class="status-tag info">Info</span>
+                    <span class="date">Jul 17, 2025</span>
+                    <h4>Adjustment of Scholarships</h4>
+                    <p>The scholarship adjustments for Summer 2025 will be made on 17th July. Please check the payment section of your Connect account to download the payslip.</p>
+                </div>
+
+
+                <div class="announcement-item deadline">
+                    <span class="status-tag deadline">Deadline</span>
+                    <span class="date">June 29, 2025</span>
+                    <h4>Payment Reminder</h4>
+                    <p>Semester fee payment is due by July 24th (for scholarship holders). Late payments will incur penalty charges. You pay apply for <i>Installment Payment.</i></p>
+                </div>
+
+                   <div class="announcement-item urgent">
+                    <span class="status-tag urgent">Urgent</span>
+                    <span class="date">June 29, 2025</span>
+                    <h4>Commencement of Extra Classes</h4>
+                    <p>Extra classes for MAT110, PHY111, and CSE110 will commence on 29th June. <a href="#" target="_blank">Click here for the routine.</a></p>
+                </div>
+
+                <!-- <div class="announcement-item deadline">
+                    <span class="status-tag deadline">Deadline</span>
+                    <span class="date">Jul 12, 2024</span>
+                    <h4>Payment Reminder</h4>
+                    <p>Semester fee payment is due by July 20th. Late payments will incur penalty charges. Contact the Accounts Office if you need assistance.</p>
+                </div> -->
+
+                 <!-- <div class="announcement-item urgent">
+                    <span class="status-tag urgent">Urgent</span>
+                    <span class="date">July 26 - August 03, 2025</span>
+                    <h4>Mid-term Examination</h4>
+                    <p>Mid-term examinations for the Summer 2025 semester will commence on 26th July.</p>
+                </div>
+
+                <div class="announcement-item urgent">
+                    <span class="status-tag urgent">Urgent</span>
+                    <span class="date">Sept 14 - 21, 2025</span>
+                    <h4>Final Examination</h4>
+                    <p>Final examinations for the Summer 2025 semester will commence on 14th September.</p>
+                </div> -->
+
+
+                <!-- <p class="subscribe-link">
+                    <a href="#">Subscribe to get email notifications for new announcements</a>
+                </p> -->
+            </section>
+
+            <section class="quick-access card">
+                <h3>Quick Access</h3>
+                <div class="quick-links-grid">
+                    <a href="important-dates.html" class="quick-link-box">
+                        <span class="material-icons">event</span>
+                        <h4>Important Dates</h4>
+                        <p>View upcoming deadlines and key dates</p>
+                    </a>
+
+                    <a href="academic-procedures.html" class="quick-link-box">
+                        <span class="material-icons">school</span>
+                        <h4>Academic Guide</h4>
+                        <p>Step-by-step academic procedures</p>
+                    </a>
+
+                    <a href="https://bracu-vault.vercel.app/" class="quick-link-box" target="_blank">
+                        <span class="material-icons">description</span>
+                        <h4>Academic Resources</h4>
+                        <p>Mentor's Personal academic resources</p>
+                    </a>
+
+                    <a href="cgpa-calculator.html" class="quick-link-box">
+                        <span class="material-icons">calculate</span>
+                        <h4>CGPA Calculator</h4>
+                        <p>Calculate your GPA and CGPA</p>
+                    </a>
+
+                    <a href="scholarship.html" class="quick-link-box">
+                        <span class="material-icons">monetization_on</span>
+                        <h4>Scholarship</h4>
+                        <p>Find out the Scholarship policies</p>
+                    </a>
+
+                    <a href="Probation.html" class="quick-link-box">
+                        <span class="material-icons">warning_amber</span>
+                        <h4>Probation</h4>
+                        <p>Find out the Probation/Retake/Repeat policies</p>
+                    </a>
+
+                    <a href="contact-me.html" class="quick-link-box">
+                        <span class="material-icons">mail_outline</span>
+                        <h4>Contact</h4>
+                        <p>Reach out to your FYAT Mentor</p>
+                    </a>
+
+                    <a href="faq.html" class="quick-link-box">
+                        <span class="material-icons">help_outline</span>
+                        <h4>FAQ</h4>
+                        <p>Find answers to common questions</p>
+                    </a>
+                </div>
+            </section>
+
+            <!-- <section class="whats-new card">
+                <h3><span class="material-icons">new_releases</span> What's New</h3>
+                <ul>
+                    <li><span class="material-icons">update</span> **CGPA Calculator Updated** <br>New UI for better calculation and breakdown</li>
+                    <li><span class="material-icons">add_circle_outline</span> **New FAQ Section** <br>Added common questions about registration</li>
+                </ul>
+            </section> -->
+        </main>
+    </div>
+
+    <!-- Disclaimer Modal -->
+    <div id="disclaimerModal" class="modal-overlay">
+        <div class="modal-content">
+            <h2>Disclaimer</h2>
+            <p>This website is a personal project by MD Shazzad Ahammed Shuvo, an FYAT mentor, and is not officially affiliated with Brac University. The information provided is for general guidance only and may not always be up-to-date or accurate. For official and accurate information, please always refer to Brac University's official website and resources.</p>
+            <button id="closeModalBtn" class="btn">Got It!</button>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

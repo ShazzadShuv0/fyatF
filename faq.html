@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ </title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+    <header class="navbar">
+        <div class="logo">FYAT - Phoenix</div>
+        <div class="subtitle">Your Academic Supporter </div>
+        <div class="status">
+            <span class="status-indicator active"></span> Active
+        </div>
+    </header>
+
+    <div class="container">
+        <aside class="sidebar">
+            <nav>
+                <ul>
+                    <li><a href="index.html"><span class="material-icons">home</span> Home</a></li>
+                    <li><a href="important-dates.html"><span class="material-icons">event</span> Important Dates</a></li>
+                    <li><a href="academic-procedures.html"><span class="material-icons">school</span> Academic Procedures</a></li>
+                    <li><a href="https://bracu-vault.vercel.app/" target="_blank"><span class="material-icons">description</span> Academic Resources</a></li>
+                    <li><a href="cgpa-calculator.html"><span class="material-icons">calculate</span> CGPA Calculator</a></li>
+                    <li><a href="scholarship.html" ><span class="material-icons">monetization_on</span> Scholarship </a></li>
+                    <li><a href="Probation.html" ><span class="material-icons">warning_amber</span> Probation </a></li>
+                    <li><a href="faq.html" class="active"><span class="material-icons">help_outline</span> FAQ</a></li>
+                    <li><a href="contact-me.html"><span class="material-icons">mail_outline</span> Contact </a></li>
+                    <li><a href="login.html" id="logout-btn"><span class="material-icons">logout</span> Logout</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <section class="faq-section">
+                <h2><span class="material-icons">help_outline</span> Frequently Asked Questions</h2>
+                <p>Find quick answers to common academic questions</p>
+
+                <div class="faq-controls">
+                    <input type="text" id="faq-search" placeholder="Search FAQs...">
+                    <div class="category-filters">
+                        <button class="filter-btn active" data-category="all">All Categories</button>
+                        <button class="filter-btn" data-category="Advising">Advising</button>
+                        <button class="filter-btn" data-category="Grades">Grades</button>
+                        <button class="filter-btn" data-category="Accounts">Accounts</button>
+                        <button class="filter-btn" data-category="ID Card">ID Card</button>
+                        <!-- <button class="filter-btn" data-category="Library">Library</button> -->
+                    </div>
+                </div>
+
+                <div class="faq-list">
+                    <div class="faq-item card" data-category="Advising">
+                        <div class="faq-question collapsible-trigger">
+                            <span class="faq-category">Advising</span>
+                            <h4>How do I register for courses?</h4>
+                            <span class="material-icons expand-icon">expand_more</span>
+                        </div>
+                        <div class="faq-answer collapsible-content">
+                            <p>You can register for courses through the BRAC University SLMS Portal - Connect during the official registration period.Check the procedure at academic advising panel in "Academic Procedures" page.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item card" data-category="Grades">
+                        <div class="faq-question collapsible-trigger">
+                            <span class="faq-category">Grades</span>
+                            <h4>What is the minimum CGPA required to graduate?</h4>
+                            <span class="material-icons expand-icon">expand_more</span>
+                        </div>
+                        <div class="faq-answer collapsible-content">
+                            <p>The minimum CGPA required to graduate from BRAC University is typically 2.00. However, specific departments or programs might have higher requirements.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item card" data-category="Accounts">
+                        <div class="faq-question collapsible-trigger">
+                            <span class="faq-category">Accounts</span>
+                            <h4>How can I pay my tuition fees?</h4>
+                            <span class="material-icons expand-icon">expand_more</span>
+                        </div>
+                        <div class="faq-answer collapsible-content">
+                            <p>You can pay your tuition fees via both online and offline. Payment procedure is mentioned at at payment procedure panel in "Academic Procedures" page.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item card" data-category="ID Card">
+                        <div class="faq-question collapsible-trigger">
+                            <span class="faq-category">ID Card</span>
+                            <h4>What should I do if I lose my student ID card?</h4>
+                            <span class="material-icons expand-icon">expand_more</span>
+                        </div>
+                        <div class="faq-answer collapsible-content">
+                            <p>If you lose your student ID card, you should immediately report it to the Student Information Center & DCO ma'am and apply for a duplicate. There might be a processing fee.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item card" data-category="Advising">
+                        <div class="faq-question collapsible-trigger">
+                            <span class="faq-category">Advising</span>
+                            <h4>Can I drop a course after the add/drop period?</h4>
+                            <span class="material-icons expand-icon">expand_more</span>
+                        </div>
+                        <div class="faq-answer collapsible-content">
+                            <p>Dropping a course after the official add/drop period usually requires special permission and may charge a processing fee. However, deadlines to add/drop/swap courses:<br>
+                                -Withdraw With 100 % refund : June 19 - June 23, 2025<br>
+                                -Withdraw With 75 % refund : June 24 - June 30, 2025.<br>
+                                -Withdraw With W Grade (No Refund) : July 1 - July 5, 2025</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item card" data-category="Grades">
+                        <div class="faq-question collapsible-trigger">
+                            <span class="faq-category">Grades</span>
+                            <h4>How is my GPA calculated?</h4>
+                            <span class="material-icons expand-icon">expand_more</span>
+                        </div>
+                        <div class="faq-answer collapsible-content">
+                            <p><img src="cgpa.png"></p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item card" data-category="Accounts">
+                        <div class="faq-question collapsible-trigger">
+                            <span class="faq-category">Accounts</span>
+                            <h4>What happens if I fail to pay my fees on time?</h4>
+                            <span class="material-icons expand-icon">expand_more</span>
+                        </div>
+                        <div class="faq-answer collapsible-content">
+                            <p>Failure to pay fees on time may result in late payment penalties [at a rate of Tk.100 per day], blocking of academic services (e.g., advising hold, access to grades) . You may apply for installment payment. Contact the Accounts Office immediately if you face difficulties.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item card" data-category="Advising">
+                        <div class="faq-question collapsible-trigger">
+                            <span class="faq-category">Advising</span>
+                            <h4>How do I apply for academic leave?</h4>
+                            <span class="material-icons expand-icon">expand_more</span>
+                        </div>
+                        <div class="faq-answer collapsible-content">
+                            <p>A student may be granted leave of absence or semester drop for a period of up to three consecutive semesters or one academic year, subject to the student meeting academic requirements. This arrangement does not apply to students who received academic probation or who have been expelled from the university on disciplinary grounds or excluded on academic grounds. The decision to grant leave of absence will rest with the Dean or Head of Department in consultation with the Registrar. A student granted leave of absence must register in the following semester immediately after the expiry of the leave period. <br><br>
+                                <i>Talk to DCO ma'am regarding this issue.</i> </p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item card" data-category="ID Card">
+                        <div class="faq-question collapsible-trigger">
+                            <span class="faq-category">ID Card</span>
+                            <h4>Can I get a duplicate student ID if mine is damaged?</h4>
+                            <span class="material-icons expand-icon">expand_more</span>
+                        </div>
+                        <div class="faq-answer collapsible-content">
+                            <p>Yes, you can apply for a duplicate student ID card if yours is damaged. The process is similar to replacing a lost card and usually involves a fee. Visit the Student Information Center (SIC) for details.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item card" data-category="Advising">
+                        <div class="faq-question collapsible-trigger">
+                            <span class="faq-category">Advising</span>
+                            <h4>Do I need to do self-advising?</h4>
+                            <span class="material-icons expand-icon">expand_more</span>
+                        </div>
+                        <div class="faq-answer collapsible-content">
+                            <p>As first-semester students, you do not need to confirm your course advising. The Registrar’s Office will automatically complete the course selection process for all new students and for those selected for the Residential Semester (RS). </p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item card" data-category="Advising">
+                        <div class="faq-question collapsible-trigger">
+                            <span class="faq-category">Library</span>
+                            <h4>How can I open a library account?</h4>
+                            <span class="material-icons expand-icon">expand_more</span>
+                        </div>
+                        <div class="faq-answer collapsible-content">
+                            <p>The full process in mentioned in <a href="academic-procedures.html">"Academic Procedures"</a> page. </p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item card" data-category="Advising">
+                        <div class="faq-question collapsible-trigger">
+                            <span class="faq-category">Printer</span>
+                            <h4>How can I use campus printer?</h4>
+                            <span class="material-icons expand-icon">expand_more</span>
+                        </div>
+                        <div class="faq-answer collapsible-content">
+                            <p>The full process in mentioned in <a href="academic-procedures.html">"Academic Procedures"</a> page. </p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item card" data-category="Advising">
+                        <div class="faq-question collapsible-trigger">
+                            <span class="faq-category">Library</span>
+                            <h4>How can I borrow any book from library?</h4>
+                            <span class="material-icons expand-icon">expand_more</span>
+                        </div>
+                        <div class="faq-answer collapsible-content">
+                            <p>The full process in mentioned in <a href="academic-procedures.html">"Academic Procedures"</a> page. </p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item card" data-category="Grades">
+                        <div class="faq-question collapsible-trigger">
+                            <span class="faq-category">Grades</span>
+                            <h4>What is the grading scale used at BRAC University?</h4>
+                            <span class="material-icons expand-icon">expand_more</span>
+                        </div>
+                        <div class="faq-answer collapsible-content">
+                            <p>BRAC University uses a letter grading system with corresponding grade points. <br>
+                                </p>
+                                <div class="grade-scale">
+                                <h3>Grade Scale</h3>
+                                <table>
+                                    <tr><td>A+</td><td>97.00-100</td><td>4</td><td> Exceptional</td></tr>
+                                    <tr><td>A</td><td>89.50-96.99</td><td>4</td><td> Excellent</td></tr>
+                                    <tr><td>A-</td><td>84.50-89.49</td><td>3.7</td><td></td></tr>
+                                    <tr><td>B+</td><td>79.50-84.49</td><td>3.3</td><td></td></tr>
+                                    <tr><td>B</td><td>74.50-79.49</td><td>3.0</td><td> Good</td></tr>
+                                    <tr><td>B-</td><td>69.50-74.49</td><td>2.7</td><td></td></tr>
+                                    <tr><td>C+</td><td>64.50-69.49</td><td>2.3</td><td></td></tr>
+                                    <tr><td>C</td><td>59.50-64.49</td><td>2.0</td><td> Fair</td></tr>
+                                    <tr><td>C-</td><td>57.00-59.49</td><td>1.7</td><td></td></tr>
+                                    <tr><td>D+</td><td>55.00-56.99</td><td>1.3</td><td> </td></tr>
+                                    <tr><td>D</td><td>52.00-55.00</td><td>1.0</td><td> Poor</td></tr>
+                                    <tr><td>D-</td><td>50.00-52.00</td><td>0.7</td><td> </td></tr>
+                                    <tr><td>F</td><td>0.00-50.00</td><td>0.0</td><td> Failure</td></tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <section class="still-need-help card">
+                    <h3>Still Need Help?</h3>
+                    <p>Can't find what you're looking for? Feel free to reach out directly!</p>
+                    <div class="two-column-layout">
+                        <div class="column">
+                            <h4>Contact Information</h4>
+                            <ul>
+                                <li>Email: <a href="mailto:shazzad.ahammed.shuvo@g.bracu.ac.bd" target="_blank">shazzad.ahammed.shuvo@g.bracu.ac.bd</a></li>
+                                <!-- <li>Office: Faculty Building, Room 123</li>
+                                <li>Office Hours: Monday-Friday, 10 AM - 4 PM</li> -->
+                                <li>Facebook: <a href="https://www.facebook.com/shazzadahammed.shuvo/" target="_blank">Shazzad Ahammed Shuvo</a></li>
+                                <li>Whatsapp: <a href="https://wa.me/+8801987909394" target="_blank">01987909394</a></li>
+                                <li>Website: <a href="https://shazzad-ahmmed-shuvo.vercel.app" target="_blank">Shazzad Ahammed Shuvo</a></li>
+                            </ul>
+                        </div>
+                        <div class="column">
+                            <h4>Other Resources</h4>
+                            <ul>
+                                <li>Office of the registrar: <a href="mailto:registrar@bracu.ac.bd">registrar@bracu.ac.bd</a></li>
+                                <li>Student Information Centre (SIC): <a href="mailto:sic@bracu.ac.bd">sic@bracu.ac.bd</a></li>
+                                <li>Office of the Proctor: <a href="mailto:proctor@bracu.ac.bd">proctor@bracu.ac.bd</a></li>
+                                <li>Office of Academic Advising (OAA): <a href="mailto:bracu-oaa@bracu.ac.bd">bracu-oaa@bracu.ac.bd</a></li>
+                                <li>University Medical Centre: <a href="mailto:medicalcenter@bracu.ac.bd">medicalcenter@bracu.ac.bd</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+            </section>
+        </main>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

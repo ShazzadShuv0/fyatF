@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - FYAT Phoenix</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body class="login-page-body">
+    <div class="login-container">
+        <div class="login-card">
+            <div class="login-header">
+                <span class="material-icons login-icon">lock</span>
+                <h2>Welcome, FYAT Mentees!</h2>
+                <p>Please log in with your Student ID to access the Mentor Hub.</p>
+            </div>
+            <div class="login-form">
+                <div class="form-group">
+                    <label for="student-id"><span class="material-icons small-icon">person</span> Student ID</label>
+                    <input type="text" id="student-id" placeholder="e.g., 20101001" required>
+                </div>
+                <p id="error-message" class="error-message"></p>
+                <button id="login-btn" class="btn full-width-btn">Login</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
