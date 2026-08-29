@@ -3,52 +3,103 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Academic Procedures </title>
+    <title>Academic Procedures — FYAT</title>
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
-    <header class="navbar">
-        <div class="logo">FYAT </div>
-        <div class="subtitle">Your Academic Supporter </div>
-        <div class="status">
-            <span class="status-indicator active"></span> Active
-        </div>
-    </header>
+    <script>
+        if (!sessionStorage.getItem('loggedInStudentId')) { window.location.href = 'login.html'; }
+    </script>
 
-    <div class="container">
-        <aside class="sidebar">
-            <nav>
-                <ul>
-                    <li><a href="index.html"><span class="material-icons">home</span> Home</a></li>
-                    <li><a href="important-dates.html"><span class="material-icons">event</span> Important Dates</a></li>
-                    <li><a href="academic-procedures.html" class="active"><span class="material-icons">school</span> Academic Procedures</a></li>
-                    <li><a href="https://bracu-vault.vercel.app/" target="_blank"><span class="material-icons">description</span> Academic Resources</a></li>
-                    <li><a href="cgpa-calculator.html"><span class="material-icons">calculate</span> CGPA Calculator</a></li>
-                    <li><a href="scholarship.html" ><span class="material-icons">monetization_on</span> Scholarship </a></li>
-                    <li><a href="Probation.html" ><span class="material-icons">warning_amber</span> Probation </a></li>
-                    <li><a href="faq.html"><span class="material-icons">help_outline</span> FAQ</a></li>
-                    <li><a href="contact-me.html"><span class="material-icons">mail_outline</span> Contact </a></li>
-                    <li><a href="login.html" id="logout-btn"><span class="material-icons">logout</span> Logout</a></li>
-                </ul>
+    <a href="#main" class="skip-link">Skip to content</a>
+
+    <div class="app-shell">
+        <div class="drawer-overlay"></div>
+
+        <aside class="sidebar" aria-label="Primary navigation">
+            <div class="brand">
+                <div class="brand-mark">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2c1.6 2.8 4.2 4.6 4.2 8.2A4.2 4.2 0 0 1 12 14.4a4.2 4.2 0 0 1-4.2-4.2c0-1 .3-1.8.8-2.6-.4 1.1-.6 2 .1 3.1a3 3 0 0 0 5.6-1.5c0-2.6-1.6-4-3.2-6.9-.3-.6-.1-1 .5-.3z" fill="#fff"/><path d="M12 15.2c1.6 0 3-.7 3.9-1.9.6 1 .9 2.2.9 3.5A4.8 4.8 0 0 1 12 21.6a4.8 4.8 0 0 1-4.8-4.8c0-1.3.3-2.5.9-3.5.9 1.2 2.3 1.9 3.9 1.9z" fill="#fff" opacity=".85"/></svg>
+                </div>
+                <div class="brand-text">
+                    <span class="brand-name">FYAT</span>
+                    <span class="brand-tagline">Your Academic Supporter</span>
+                </div>
+            </div>
+
+            <nav class="sidebar-scroll">
+                <div class="nav-group">
+                    <div class="nav-group-label">Main</div>
+                    <ul>
+                        <li><a href="index.html" class="nav-link"><span class="material-icons">dashboard</span> Home</a></li>
+                        <li><a href="important-dates.html" class="nav-link"><span class="material-icons">event</span> Important Dates</a></li>
+                        <li><a href="academic-procedures.html" class="nav-link active"><span class="material-icons">school</span> Academic Procedures</a></li>
+                        <li><a href="https://bracu-vault.vercel.app/" target="_blank" class="nav-link"><span class="material-icons">folder_open</span> Academic Resources <span class="material-icons nav-ext">open_in_new</span></a></li>
+                    </ul>
+                </div>
+                <div class="nav-group">
+                    <div class="nav-group-label">Tools</div>
+                    <ul>
+                        <li><a href="https://probation-cgpa-calculator.vercel.app/" class="nav-link"><span class="material-icons">calculate</span> CGPA Calculator</a></li>
+                    </ul>
+                </div>
+                <div class="nav-group">
+                    <div class="nav-group-label">Academic Support</div>
+                    <ul>
+                        <li><a href="scholarship.html" class="nav-link"><span class="material-icons">workspace_premium</span> Scholarship</a></li>
+                        <li><a href="Probation.html" class="nav-link"><span class="material-icons">warning_amber</span> Probation</a></li>
+                        <li><a href="faq.html" class="nav-link"><span class="material-icons">help_outline</span> FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="nav-group">
+                    <div class="nav-group-label">Support</div>
+                    <ul>
+                        <li><a href="contact-me.html" class="nav-link"><span class="material-icons">mail_outline</span> Contact</a></li>
+                    </ul>
+                </div>
             </nav>
+
+            <div class="sidebar-footer">
+                <a href="login.html" id="logout-btn" class="nav-link logout-link"><span class="material-icons">logout</span> Logout</a>
+            </div>
         </aside>
 
-        <main class="main-content">
-            <section class="academic-procedures-section">
-                <h2><span class="material-icons">school</span> Academic Procedures</h2>
-                <p>Step-by-step guides for important academic processes</p>
+        <div class="main-wrap" style="flex:1; min-width:0;">
+            <header class="topbar">
+                <button class="hamburger-btn" aria-label="Open navigation menu" aria-expanded="false">
+                    <span class="material-icons">menu</span>
+                </button>
+                <div class="page-title-block">
+                    <span class="crumb">FYAT</span>
+                    <h1>Academic Procedures</h1>
+                </div>
+                <div class="topbar-spacer"></div>
+                <div class="topbar-actions">
+                    <span class="status-pill"><span class="status-dot"></span> Active</span>
+                    <button class="icon-btn theme-toggle" aria-label="Toggle dark mode" aria-pressed="false">
+                        <span class="material-icons icon-only-light">dark_mode</span>
+                        <span class="material-icons icon-only-dark">light_mode</span>
+                    </button>
+                </div>
+            </header>
+
+            <main class="main-content" id="main">
+                <div class="page-head">
+                    <h2><span class="material-icons">school</span> Academic Procedures</h2>
+                    <p>Step-by-step guides for important academic processes</p>
+                </div>
 
                 <div class="procedure-card card">
                     <div class="procedure-header collapsible-trigger">
-                        <h3><span class="material-icons">computer</span> Academic Advising </h3>
+                        <h3><span class="material-icons">computer</span> Academic Advising</h3>
                         <span class="material-icons expand-icon">expand_more</span>
                     </div>
                     <div class="collapsible-content">
                         <p>Academic Advising</p>
                         <h4>Steps: How to proceed</h4>
                         <ol class="steps-list">
-                            <li><span class="step-icon">-</span> Go through this  - <a href="https://drive.google.com/file/d/1ae7cfnmOeHSkOVl74cOUKRAeq4XTnqEi/view" target="_blank"> file.  </a>   </li>
+                            <li><span class="step-icon">•</span> Go through this — <a href="https://drive.google.com/file/d/1ae7cfnmOeHSkOVl74cOUKRAeq4XTnqEi/view" target="_blank">file</a>.</li>
                             <!-- <li><span class="step-icon">2</span> Navigate to 'Academic' > 'Advising'</li>
                             <li><span class="step-icon">3</span> Check your advisor's available time slots</li>
                             <li><span class="step-icon">4</span> Book an appointment with your assigned advisor</li>
@@ -60,11 +111,11 @@
                             <h4><span class="material-icons">lightbulb_outline</span> Helpful Instructions for Pre-Registration / Advising</h4>
                             <ul>
                                 <li>While filling out your wishlist, please ensure that you are selecting courses according to the suggested course sequence provided by your department and also check the prerequisites for these courses.</li>
-                                <li>Prepare your class routine a day before your advising session using this unofficial routine planning <a href="https://preprereg.vercel.app/" target="_blank">website</a>. Make sure that all the data match with the official website - <a href="https://connect.bracu.ac.bd/" target="_blank">Connect</a>. </li>
+                                <li>Prepare your class routine a day before your advising session using this unofficial routine planning <a href="https://preprereg.vercel.app/" target="_blank">website</a>. Make sure that all the data match with the official website - <a href="https://connect.bracu.ac.bd/" target="_blank">Connect</a>.</li>
                                 <li>While planning your routine:<br>
                                     - Choose sections with available seats.<br>
                                     - Follow the suggested course sequence to avoid future academic issues.</li>
-                                <li>To better understand the advising/pre-registration process, please watch this  <a href="https://youtu.be/Kf3xqzT5-qk?feature=shared" target="_blank">video</a>.</li>
+                                <li>To better understand the advising/pre-registration process, please watch this <a href="https://youtu.be/Kf3xqzT5-qk?feature=shared" target="_blank">video</a>.</li>
                                 <li>During the advising/pre-registration period, try to secure your seats as early as possible, as availability may become limited.</li>
                             </ul>
                         </div>
@@ -78,25 +129,23 @@
                     </div>
                     <div class="collapsible-content">
                         <!-- <p>Step-by-step guide to get your classroom in campus</p> -->
-                        <p>Details about classroom number-plate code:
-                            <img src="Room.png">
-                        </p>
+                        <p>Details about classroom number-plate code:</p>
+                        <img src="Room.png" alt="Classroom number-plate code diagram">
                     </div>
                 </div>
 
                 <div class="procedure-card card">
                     <div class="procedure-header collapsible-trigger">
-                        <h3><span class="material-icons">add_task</span> Dropping/Adding/Swaping Courses</h3>
+                        <h3><span class="material-icons">add_task</span> Dropping/Adding/Swapping Courses</h3>
                         <span class="material-icons expand-icon">expand_more</span>
                     </div>
                     <div class="collapsible-content">
                         <p>How to modify your course schedule after registration?</p>
-                        <p>Details about dropping , adding and swaping courses are:<br>
+                        <p>Details about dropping, adding and swapping courses are:<br>
                             <b>For freshers:</b> You have to contact with the fresher's advisor (Not the OAA Advisors) to drop/add/swap any course in the declared time period.
                             Here are the list of fresher's advisors:<br>
-                            - For EEE dept: Atib Mahmud Oni, [atib.mohammad@bracu.ac.bd]<br>
-                            <img src="Advisor.png"></p>
-
+                            - For EEE dept: Atib Mahmud Oni, [atib.mohammad@bracu.ac.bd]</p>
+                        <img src="Advisor.png" alt="List of fresher's advisors">
                     </div>
                 </div>
 
@@ -108,38 +157,23 @@
                     <div class="collapsible-content">
                         <p>Process to open your library account.</p>
 
-                            <div class="helpful-advice-box">
-                            <h4><span class="material-icons">lightbulb_outline</span> Procedure to open your Library acoount:</h4><i>[To open library account, you will need your gsuite email ID, Student ID Card. Make sure you have all of these things.]</i><br>
+                        <div class="helpful-advice-box">
+                            <h4><span class="material-icons">lightbulb_outline</span> Procedure to open your Library account:</h4>
+                            <p><i>[To open library account, you will need your gsuite email ID, Student ID Card. Make sure you have all of these things.]</i><br>
                             - Go to <a href="https://library.bracu.ac.bd/" target="_blank">Ayesha Abed Library</a>.<br>
-                            - Scroll down to "My Account"and click on “Register” button.<br>
-
+                            - Scroll down to "My Account" and click on “Register” button.<br>
                             - Fill up the form. Within 24 working hours, you will get an account activation mail from the library authority.<br>
+                            <i>N.B: You won't be able to borrow any book without a library account.</i></p>
+                        </div>
 
-                            <i>N.B: You won't be able to borrow any book without a library account.</i>
-                            </div>
-
-                        </p>
-
-                        <p>
-                            <div class="helpful-advice-box">
-                            <h4><span class="material-icons">lightbulb_outline</span> Procedure to enable your OpenAthens account:</h4><br>
-                            - Go to <a href="https://library.bracu.ac.bd/" target="_blank">Ayesha Abed Library</a>.<br>
-                            - Scroll down to "My Athens"and click on “Register” button.<br>
-
+                        <div class="helpful-advice-box">
+                            <h4><span class="material-icons">lightbulb_outline</span> Procedure to enable your OpenAthens account:</h4>
+                            <p>- Go to <a href="https://library.bracu.ac.bd/" target="_blank">Ayesha Abed Library</a>.<br>
+                            - Scroll down to "My Athens" and click on “Register” button.<br>
                             - Fill up the form. Within 24 working hours, you will get an account activation mail from the library authority.<br>
-
-                            <i>N.B: It is necessary to get access to the research articles.</i>
-                            </div>
-
-                        </p>
-
-
-
-
-
+                            <i>N.B: It is necessary to get access to the research articles.</i></p>
+                        </div>
                     </div>
-
-
                 </div>
 
                 <div class="procedure-card card">
@@ -150,40 +184,26 @@
                     <div class="collapsible-content">
                         <p>Process to borrow any books / materials from library:</p>
 
-                            <p>
-                            <div class="helpful-advice-box">
-                            <h4><span class="material-icons">lightbulb_outline</span> Procedure to borrow your desired book:</h4><br>
-                            - Go to <a href="https://library.bracu.ac.bd/" target="_blank">Ayesha Abed Library</a>.<br>
-                            - Type the name of your desired book in search panel of the landing page. <br>
-
-                            - Check the books edition, publication year & availability status and note your books call number (e.g. 621.38223 OPP).<br>
-
+                        <div class="helpful-advice-box">
+                            <h4><span class="material-icons">lightbulb_outline</span> Procedure to borrow your desired book:</h4>
+                            <p>- Go to <a href="https://library.bracu.ac.bd/" target="_blank">Ayesha Abed Library</a>.<br>
+                            - Type the name of your desired book in search panel of the landing page.<br>
+                            - Check the books edition, publication year &amp; availability status and note your books call number (e.g. 621.38223 OPP).<br>
                             - Go to the self corner and you will find the range of call numbers are hung beside the self.<br>
+                            - Find your self using the call number and then find the book from the self using the call number. <i>You may seek help from any library assistants.</i><br>
+                            - Go to the self check-out corner and scan the bar code of your Student ID card. Then scan the bar code of your desired book.<br>
+                            - Confirm your application and download the receipt. All Done!!!</p>
+                        </div>
 
-                            - Find your self using the call number and then find the book from the self uysing the call number. <i>You may seek help from any library assitants.</i><br>
-
-                            - Go to the self check-out corner and scan the bar code of your Student ID card. Then scan the bar code of your desired book.  <br>
-
-                            - Confirm your application and download the receipt. All Done!!!<br>
-                            </div>
-
-
-
-
-                        </p>
-
-                        <p>
-                            <div class="helpful-advice-box">
-                            <h4><span class="material-icons">lightbulb_outline</span> Procedure to book your Library space:</h4><i>[To book your Library space, you will need your library account. Make sure you have your library account.]</i><br>
+                        <div class="helpful-advice-box">
+                            <h4><span class="material-icons">lightbulb_outline</span> Procedure to book your Library space:</h4>
+                            <p><i>[To book your Library space, you will need your library account. Make sure you have your library account.]</i><br>
                             - Go to <a href="https://library.bracu.ac.bd/facility/space/reservation/" target="_blank">Ayesha Abed Library Space Reservation System</a>.<br>
-
-                            - Fill up the form with valid information. Within few minutes, you will get a confirmation mail from the library authority.<br>
-                            </div>
-
-                        </p>
-
+                            - Fill up the form with valid information. Within few minutes, you will get a confirmation mail from the library authority.</p>
+                        </div>
                     </div>
                 </div>
+
                 <div class="procedure-card card">
                     <div class="procedure-header collapsible-trigger">
                         <h3><span class="material-icons">list</span> Suggested Course Sequence</h3>
@@ -193,14 +213,11 @@
                         <!-- <p>How to modify your course schedule after registration?</p> -->
                         <p><b>Details about your suggested course sequence:</b><br>
                             <a href="https://engineering.bracu.ac.bd/recommended-course-sequence-details/1" target="_blank">- For Department of EEE</a><br>
-                            <a href="https://engineering.bracu.ac.bd/recommended-course-sequence-details/2" target="_blank">- For Department of ECE</a>
-                        </p>
+                            <a href="https://engineering.bracu.ac.bd/recommended-course-sequence-details/2" target="_blank">- For Department of ECE</a></p>
 
-                         <p><b>Check your degree requirements:</b><br>
+                        <p><b>Check your degree requirements:</b><br>
                             <a href="https://engineering.bracu.ac.bd/degree-requirements-details/1" target="_blank">- For Department of EEE</a><br>
-                            <a href="https://engineering.bracu.ac.bd/degree-requirements-details/2" target="_blank">- For Department of ECE</a>
-                        </p>
-
+                            <a href="https://engineering.bracu.ac.bd/degree-requirements-details/2" target="_blank">- For Department of ECE</a></p>
                     </div>
                 </div>
 
@@ -210,31 +227,25 @@
                         <span class="material-icons expand-icon">expand_more</span>
                     </div>
                     <div class="collapsible-content">
-                         <p>How to pay your tuitions fees?</p>
+                        <p>How to pay your tuitions fees?</p>
 
-                         <p>
-                            <h4>Step-1: Download your payslip</h4>
+                        <h4>Step 1: Download your payslip</h4>
                         <ol class="steps-list">
-                            <li><span class="step-icon">1</span> Go to BRACU SLMS -  <a href="https://connect.bracu.ac.bd/" target="_blank"> connect .  </a>   </li>
+                            <li><span class="step-icon">1</span> Go to BRACU SLMS - <a href="https://connect.bracu.ac.bd/" target="_blank">connect</a>.</li>
                             <li><span class="step-icon">2</span> Click on the ”Payslip” tab.</li>
                             <li><span class="step-icon">3</span> Click on the ”view” button.</li>
                             <li><span class="step-icon">4</span> Click on the ”Pay Now” button for online payment [Not recommended].</li>
-                            <li><span class="step-icon">5</span> Click on the ”Download” button for offline payment { Recommended}.</li>
+                            <li><span class="step-icon">5</span> Click on the ”Download” button for offline payment {Recommended}.</li>
                             <!-- <li><span class="step-icon">6</span> Attend the advising session (online or in-person)</li>
                             <li><span class="step-icon">7</span> Follow advisor's recommendations for course selection</li> -->
                         </ol>
-                        </p>
 
-                        <p>
-                            <h4>Step-2: Print out your payslip</h4>
+                        <h4>Step 2: Print out your payslip</h4>
                         <ol class="steps-list">
-                            <li><span class="step-icon">1</span> Print out your payslip from BracU Campus Printer   <a href="printing.pdf" target="_blank"> (Procedure is mentioned here)  </a> or any other way.  </li>
-
+                            <li><span class="step-icon">1</span> Print out your payslip from BracU Campus Printer <a href="printing.pdf" target="_blank">(Procedure is mentioned here)</a> or any other way.</li>
                         </ol>
-                        </p>
 
-                        <p>
-                            <h4>Step-3: Pay your fees</h4>
+                        <h4>Step 3: Pay your fees</h4>
                         <ol class="steps-list">
                             <li><span class="step-icon">1</span> Go to your any branch of these banks:<br>
                                 - Brac Bank<br>
@@ -242,16 +253,13 @@
                                 - Dhaka Bank<br>
                                 - Dutch Bangla Bank<br>
                                 - Pubali Bank<br>
-                                - Southeast Bank<br></li>
-                            <li><span class="step-icon">2</span>Submit your payslip and tuition fees.</li>
-                            <li><span class="step-icon">3</span>Banker will process your payment.</li>
-                            <li><span class="step-icon">4</span>Collect your student copy.</li>
-                            <li><span class="step-icon">5</span>You will get a confirmation from BracU authority.</li>
-
-                        </ol><br>
-                        <i text-align="center">Same procedure is applicable for installment payment!!!</i>
-                        </p>
-
+                                - Southeast Bank</li>
+                            <li><span class="step-icon">2</span> Submit your payslip and tuition fees.</li>
+                            <li><span class="step-icon">3</span> Banker will process your payment.</li>
+                            <li><span class="step-icon">4</span> Collect your student copy.</li>
+                            <li><span class="step-icon">5</span> You will get a confirmation from BracU authority.</li>
+                        </ol>
+                        <p><i>Same procedure is applicable for installment payment!!!</i></p>
                     </div>
                 </div>
 
@@ -262,16 +270,10 @@
                     </div>
                     <div class="collapsible-content">
                         <!-- <p>How to modify your course schedule after registration?</p> -->
-                        <p>
-                            <h4>Print out your desired documents using Campus printer:</h4>
+                        <h4>Print out your desired documents using Campus printer:</h4>
                         <ol class="steps-list">
-                            <li><span class="step-icon">1</span> Print out your desired documents from BracU Campus Printer   <a href="printing.pdf" target="_blank"> (Procedure is mentioned here)  </a> .  </li>
-
+                            <li><span class="step-icon">1</span> Print out your desired documents from BracU Campus Printer <a href="printing.pdf" target="_blank">(Procedure is mentioned here)</a>.</li>
                         </ol>
-                        </p>
-
-
-
                     </div>
                 </div>
 
@@ -282,22 +284,12 @@
                     </div>
                     <div class="collapsible-content">
                         <!-- <p>How to modify your course schedule after registration?</p> -->
-                        <p>Details about academic officials of <b><i>BSRM School of Engineering</i>:</b><br><br>
-                            <h4><a href="https://engineering.bracu.ac.bd/school-management" target="_blank">Management</a></h4>
-
-
-                            <h4><a href="https://engineering.bracu.ac.bd/staffs" target="_blank">Department Coordinating Officer (DCO)</a></h4>
-
-
-                            <h4><a href="https://engineering.bracu.ac.bd/faculty-directory" target="_blank">Faculty Members</a></h4>
-                        </p>
-
-
-
+                        <p>Details about academic officials of <b><i>BSRM School of Engineering</i></b>:</p>
+                        <h4><a href="https://engineering.bracu.ac.bd/school-management" target="_blank">Management</a></h4>
+                        <h4><a href="https://engineering.bracu.ac.bd/staffs" target="_blank">Department Coordinating Officer (DCO)</a></h4>
+                        <h4><a href="https://engineering.bracu.ac.bd/faculty-directory" target="_blank">Faculty Members</a></h4>
                     </div>
                 </div>
-
-
 
                 <section class="quick-reference card">
                     <h3>Quick Reference</h3>
@@ -309,12 +301,9 @@
                                 <li><a href="https://engineering.bracu.ac.bd/" target="_blank">BSRM School of Engineering</a></li>
                                 <li><a href="https://connect.bracu.ac.bd/" target="_blank">BRACU SLMS - Connect</a></li>
                                 <li><a href="https://www.bracu.ac.bd/academic-dates" target="_blank">Academic Calendar</a></li>
-                                <li><a href="https://annajiat.blogspot.com/2021/07/dos-and-donts-of-academic-emails.html" target="_blank">Email Etiquette </a></li>
-                                <li><a href="https://www.bracu.ac.bd/academics/policies-and-procedures" target="_blank">Policy </a></li>
-                                <li><a href="https://www.bracu.ac.bd/contact" target="_blank">Contact </a></li>
-
-
-
+                                <li><a href="https://annajiat.blogspot.com/2021/07/dos-and-donts-of-academic-emails.html" target="_blank">Email Etiquette</a></li>
+                                <li><a href="https://www.bracu.ac.bd/academics/policies-and-procedures" target="_blank">Policy</a></li>
+                                <li><a href="https://www.bracu.ac.bd/contact" target="_blank">Contact</a></li>
                             </ul>
                         </div>
                         <div class="column">
@@ -329,8 +318,30 @@
                         </div>
                     </div>
                 </section>
-            </section>
-        </main>
+
+                <footer class="site-footer">
+                    <div class="footer-brand">
+                        <strong>FYAT Phoenix</strong>
+                        <span>Your Academic Supporter</span>
+                    </div>
+                    <nav class="footer-links">
+                        <a href="https://bracu-vault.vercel.app/" target="_blank">Academic Resources</a>
+                        <a href="contact-me.html">Contact Mentor</a>
+                        <a href="faq.html">FAQ</a>
+                    </nav>
+                    <div class="footer-credit">© FYAT Phoenix — a personal mentor project by MD Shazzad Ahammed Shuvo. Not officially affiliated with Brac University.</div>
+                </footer>
+            </main>
+        </div>
+    </div>
+
+    <div id="disclaimerModal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="disclaimerTitle">
+        <div class="modal-content">
+            <div class="modal-icon"><span class="material-icons">info</span></div>
+            <h2 id="disclaimerTitle">Disclaimer</h2>
+            <p>This website is a personal project by MD Shazzad Ahammed Shuvo, an FYAT mentor, and is not officially affiliated with Brac University. The information provided is for general guidance only and may not always be up-to-date or accurate. For official and accurate information, please always refer to Brac University's official website and resources.</p>
+            <button id="closeModalBtn" class="btn">Got It!</button>
+        </div>
     </div>
 
     <script src="js/script.js"></script>
