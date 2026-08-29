@@ -3,53 +3,102 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Scholarship  </title>
+    <title>Scholarship — FYAT</title>
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
-    <header class="navbar">
-        <div class="logo">FYAT - Phoenix</div>
-        <div class="subtitle">Your Academic Supporter </div>
-        <div class="status">
-            <span class="status-indicator active"></span> Active
-        </div>
-    </header>
+    <script>
+        if (!sessionStorage.getItem('loggedInStudentId')) { window.location.href = 'login.html'; }
+    </script>
 
-    <div class="container">
-        <aside class="sidebar">
-            <nav>
-                <ul>
-                    <li><a href="index.html"><span class="material-icons">home</span> Home</a></li>
-                    <li><a href="important-dates.html"><span class="material-icons">event</span> Important Dates</a></li>
-                    <li><a href="academic-procedures.html"><span class="material-icons">school</span> Academic Procedures</a></li>
-                    <li><a href="https://bracu-vault.vercel.app/" target="_blank"><span class="material-icons">description</span> Academic Resources</a></li>
-                    <li><a href="cgpa-calculator.html"><span class="material-icons">calculate</span> CGPA Calculator</a></li>
-                    <li><a href="scholarship.html" class="active"><span class="material-icons">monetization_on</span> Scholarship </a></li>
-                    <li><a href="Probation.html" ><span class="material-icons">warning_amber</span> Probation </a></li>
-                    <li><a href="faq.html"><span class="material-icons">help_outline</span> FAQ</a></li>
-                    <li><a href="contact-me.html"><span class="material-icons">mail_outline</span> Contact </a></li>
-                    <li><a href="login.html" id="logout-btn"><span class="material-icons">logout</span> Logout</a></li>
+    <a href="#main" class="skip-link">Skip to content</a>
 
-                </ul>
+    <div class="app-shell">
+        <div class="drawer-overlay"></div>
+
+        <aside class="sidebar" aria-label="Primary navigation">
+            <div class="brand">
+                <div class="brand-mark">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2c1.6 2.8 4.2 4.6 4.2 8.2A4.2 4.2 0 0 1 12 14.4a4.2 4.2 0 0 1-4.2-4.2c0-1 .3-1.8.8-2.6-.4 1.1-.6 2 .1 3.1a3 3 0 0 0 5.6-1.5c0-2.6-1.6-4-3.2-6.9-.3-.6-.1-1 .5-.3z" fill="#fff"/><path d="M12 15.2c1.6 0 3-.7 3.9-1.9.6 1 .9 2.2.9 3.5A4.8 4.8 0 0 1 12 21.6a4.8 4.8 0 0 1-4.8-4.8c0-1.3.3-2.5.9-3.5.9 1.2 2.3 1.9 3.9 1.9z" fill="#fff" opacity=".85"/></svg>
+                </div>
+                <div class="brand-text">
+                    <span class="brand-name">FYAT</span>
+                    <span class="brand-tagline">Your Academic Supporter</span>
+                </div>
+            </div>
+
+            <nav class="sidebar-scroll">
+                <div class="nav-group">
+                    <div class="nav-group-label">Main</div>
+                    <ul>
+                        <li><a href="index.html" class="nav-link"><span class="material-icons">dashboard</span> Home</a></li>
+                        <li><a href="important-dates.html" class="nav-link"><span class="material-icons">event</span> Important Dates</a></li>
+                        <li><a href="academic-procedures.html" class="nav-link"><span class="material-icons">school</span> Academic Procedures</a></li>
+                        <li><a href="https://bracu-vault.vercel.app/" target="_blank" class="nav-link"><span class="material-icons">folder_open</span> Academic Resources <span class="material-icons nav-ext">open_in_new</span></a></li>
+                    </ul>
+                </div>
+                <div class="nav-group">
+                    <div class="nav-group-label">Tools</div>
+                    <ul>
+                        <li><a href="https://probation-cgpa-calculator.vercel.app/" class="nav-link"><span class="material-icons">calculate</span> CGPA Calculator</a></li>
+                    </ul>
+                </div>
+                <div class="nav-group">
+                    <div class="nav-group-label">Academic Support</div>
+                    <ul>
+                        <li><a href="scholarship.html" class="nav-link active"><span class="material-icons">workspace_premium</span> Scholarship</a></li>
+                        <li><a href="Probation.html" class="nav-link"><span class="material-icons">warning_amber</span> Probation</a></li>
+                        <li><a href="faq.html" class="nav-link"><span class="material-icons">help_outline</span> FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="nav-group">
+                    <div class="nav-group-label">Support</div>
+                    <ul>
+                        <li><a href="contact-me.html" class="nav-link"><span class="material-icons">mail_outline</span> Contact</a></li>
+                    </ul>
+                </div>
             </nav>
+
+            <div class="sidebar-footer">
+                <a href="login.html" id="logout-btn" class="nav-link logout-link"><span class="material-icons">logout</span> Logout</a>
+            </div>
         </aside>
 
-        <main class="main-content">
-            <section class="scholarship-probation-section">
-                <h2><span class="material-icons">monetization_on</span> Scholarship Policies</h2>
-                <p>Understanding academic standing and financial aid requirements</p>
+        <div class="main-wrap" style="flex:1; min-width:0;">
+            <header class="topbar">
+                <button class="hamburger-btn" aria-label="Open navigation menu" aria-expanded="false">
+                    <span class="material-icons">menu</span>
+                </button>
+                <div class="page-title-block">
+                    <span class="crumb">FYAT Phoenix</span>
+                    <h1>Scholarship</h1>
+                </div>
+                <div class="topbar-spacer"></div>
+                <div class="topbar-actions">
+                    <span class="status-pill"><span class="status-dot"></span> Active</span>
+                    <button class="icon-btn theme-toggle" aria-label="Toggle dark mode" aria-pressed="false">
+                        <span class="material-icons icon-only-light">dark_mode</span>
+                        <span class="material-icons icon-only-dark">light_mode</span>
+                    </button>
+                </div>
+            </header>
+
+            <main class="main-content" id="main">
+                <div class="page-head">
+                    <h2><span class="material-icons">workspace_premium</span> Scholarship Policies</h2>
+                    <p>Understanding academic standing and financial aid requirements</p>
+                </div>
 
                 <div class="card">
                     <h3><span class="material-icons">star_outline</span> Merit-Based Scholarships</h3>
                     <div class="policy-details">
                         <h4>Eligibility Criteria</h4>
                         <ul>
-                            <li>Minimum 30 Credit to avail this schlarship.</li>
-                            <li>Must complete minimum 12 credits / 15 credits(only for Law) / / 18 credits(only for Pharmacy) both in the current and previous semester.</li>
-                            <li>No retake & repeat courses both in the current and previous semester.</li>
+                            <li>Minimum 30 credit to avail this scholarship.</li>
+                            <li>Must complete minimum 12 credits / 15 credits (only for Law) / 18 credits (only for Pharmacy) both in the current and previous semester.</li>
+                            <li>No retake &amp; repeat courses both in the current and previous semester.</li>
                             <li>No "W"/"F" grade in the previous semester.</li>
-
                         </ul>
                         <h4>Scholarship Tiers</h4>
                         <div class="scholarship-tiers-grid">
@@ -58,19 +107,19 @@
                                 <span class="tier-value">100% Tuition Fee Waiver</span>
                             </div>
                             <div class="tier-item">
-                                <span class="tier-label">CGPA 3.95-3.99</span>
+                                <span class="tier-label">CGPA 3.95–3.99</span>
                                 <span class="tier-value">75% Tuition Fee Waiver</span>
                             </div>
                             <div class="tier-item">
-                                <span class="tier-label">CGPA 3.90-3.94</span>
+                                <span class="tier-label">CGPA 3.90–3.94</span>
                                 <span class="tier-value">50% Tuition Fee Waiver</span>
-                            </div><br>
+                            </div>
                             <div class="tier-item">
-                                <span class="tier-label">CGPA 3.85-3.89</span>
+                                <span class="tier-label">CGPA 3.85–3.89</span>
                                 <span class="tier-value">25% Tuition Fee Waiver</span>
                             </div>
                             <div class="tier-item">
-                                <span class="tier-label">CGPA 3.70-3.84</span>
+                                <span class="tier-label">CGPA 3.70–3.84</span>
                                 <span class="tier-value">10% Tuition Fee Waiver</span>
                             </div>
                         </div>
@@ -91,39 +140,55 @@
                 <div class="card">
                     <h3><span class="material-icons">star_outline</span> Other Scholarships</h3>
                     <div class="policy-details">
-                        <h4><a href="https://www.bracu.ac.bd/admissions/scholarships-and-financial-aid" target="_blank">Check out the Eligibility Criteria &  policies</a></h4>
-
-
+                        <h4><a href="https://www.bracu.ac.bd/admissions/scholarships-and-financial-aid" target="_blank">Check out the eligibility criteria &amp; policies</a></h4>
                     </div>
-
-
                 </div>
 
-
-
-                <div class="quick-reference card">
+                <section class="quick-reference card">
                     <h3>Quick Reference Guide</h3>
                     <div class="gpa-status-grid">
                         <div class="status-box good">
-                            <h4>CGPA 3.70+ </h4>
-                            <p>Eligible for Merit based Scholarship </p>
+                            <h4>CGPA 3.70+</h4>
+                            <p>Eligible for merit based scholarship</p>
                         </div>
                         <div class="status-box neutral">
-                            <h4>3.00-3.69</h4>
-                            <p>Good Standing</p>
+                            <h4>3.00–3.69</h4>
+                            <p>Good standing</p>
                         </div>
                         <div class="status-box neutral">
-                            <h4>2.00-2.99</h4>
+                            <h4>2.00–2.99</h4>
                             <p>Fair</p>
                         </div>
                         <div class="status-box bad">
                             <h4>&lt;2.00</h4>
-                            <p>Academic Probation</p>
+                            <p>Academic probation</p>
                         </div>
                     </div>
                 </section>
-            </section>
-        </main>
+
+                <footer class="site-footer">
+                    <div class="footer-brand">
+                        <strong>FYAT</strong>
+                        <span>Your Academic Supporter</span>
+                    </div>
+                    <nav class="footer-links">
+                        <a href="https://bracu-vault.vercel.app/" target="_blank">Academic Resources</a>
+                        <a href="contact-me.html">Contact Mentor</a>
+                        <a href="faq.html">FAQ</a>
+                    </nav>
+                    <div class="footer-credit">© FYAT - a personal mentor project by MD Shazzad Ahammed Shuvo. Not officially affiliated with Brac University.</div>
+                </footer>
+            </main>
+        </div>
+    </div>
+
+    <div id="disclaimerModal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="disclaimerTitle">
+        <div class="modal-content">
+            <div class="modal-icon"><span class="material-icons">info</span></div>
+            <h2 id="disclaimerTitle">Disclaimer</h2>
+            <p>This website is a personal project by MD Shazzad Ahammed Shuvo, an FYAT mentor, and is not officially affiliated with Brac University. The information provided is for general guidance only and may not always be up-to-date or accurate. For official and accurate information, please always refer to Brac University's official website and resources.</p>
+            <button id="closeModalBtn" class="btn">Got It!</button>
+        </div>
     </div>
 
     <script src="js/script.js"></script>
