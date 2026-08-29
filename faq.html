@@ -3,44 +3,98 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FAQ </title>
+    <title>FAQ — FYAT</title>
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
-    <header class="navbar">
-        <div class="logo">FYAT - Phoenix</div>
-        <div class="subtitle">Your Academic Supporter </div>
-        <div class="status">
-            <span class="status-indicator active"></span> Active
-        </div>
-    </header>
+    <script>
+        if (!sessionStorage.getItem('loggedInStudentId')) { window.location.href = 'login.html'; }
+    </script>
 
-    <div class="container">
-        <aside class="sidebar">
-            <nav>
-                <ul>
-                    <li><a href="index.html"><span class="material-icons">home</span> Home</a></li>
-                    <li><a href="important-dates.html"><span class="material-icons">event</span> Important Dates</a></li>
-                    <li><a href="academic-procedures.html"><span class="material-icons">school</span> Academic Procedures</a></li>
-                    <li><a href="https://bracu-vault.vercel.app/" target="_blank"><span class="material-icons">description</span> Academic Resources</a></li>
-                    <li><a href="cgpa-calculator.html"><span class="material-icons">calculate</span> CGPA Calculator</a></li>
-                    <li><a href="scholarship.html" ><span class="material-icons">monetization_on</span> Scholarship </a></li>
-                    <li><a href="Probation.html" ><span class="material-icons">warning_amber</span> Probation </a></li>
-                    <li><a href="faq.html" class="active"><span class="material-icons">help_outline</span> FAQ</a></li>
-                    <li><a href="contact-me.html"><span class="material-icons">mail_outline</span> Contact </a></li>
-                    <li><a href="login.html" id="logout-btn"><span class="material-icons">logout</span> Logout</a></li>
-                </ul>
+    <a href="#main" class="skip-link">Skip to content</a>
+
+    <div class="app-shell">
+        <div class="drawer-overlay"></div>
+
+        <aside class="sidebar" aria-label="Primary navigation">
+            <div class="brand">
+                <div class="brand-mark">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2c1.6 2.8 4.2 4.6 4.2 8.2A4.2 4.2 0 0 1 12 14.4a4.2 4.2 0 0 1-4.2-4.2c0-1 .3-1.8.8-2.6-.4 1.1-.6 2 .1 3.1a3 3 0 0 0 5.6-1.5c0-2.6-1.6-4-3.2-6.9-.3-.6-.1-1 .5-.3z" fill="#fff"/><path d="M12 15.2c1.6 0 3-.7 3.9-1.9.6 1 .9 2.2.9 3.5A4.8 4.8 0 0 1 12 21.6a4.8 4.8 0 0 1-4.8-4.8c0-1.3.3-2.5.9-3.5.9 1.2 2.3 1.9 3.9 1.9z" fill="#fff" opacity=".85"/></svg>
+                </div>
+                <div class="brand-text">
+                    <span class="brand-name">FYAT</span>
+                    <span class="brand-tagline">Your Academic Supporter</span>
+                </div>
+            </div>
+
+            <nav class="sidebar-scroll">
+                <div class="nav-group">
+                    <div class="nav-group-label">Main</div>
+                    <ul>
+                        <li><a href="index.html" class="nav-link"><span class="material-icons">dashboard</span> Home</a></li>
+                        <li><a href="important-dates.html" class="nav-link"><span class="material-icons">event</span> Important Dates</a></li>
+                        <li><a href="academic-procedures.html" class="nav-link"><span class="material-icons">school</span> Academic Procedures</a></li>
+                        <li><a href="https://bracu-vault.vercel.app/" target="_blank" class="nav-link"><span class="material-icons">folder_open</span> Academic Resources <span class="material-icons nav-ext">open_in_new</span></a></li>
+                    </ul>
+                </div>
+                <div class="nav-group">
+                    <div class="nav-group-label">Tools</div>
+                    <ul>
+                        <li><a href="https://probation-cgpa-calculator.vercel.app/" class="nav-link"><span class="material-icons">calculate</span> CGPA Calculator</a></li>
+                    </ul>
+                </div>
+                <div class="nav-group">
+                    <div class="nav-group-label">Academic Support</div>
+                    <ul>
+                        <li><a href="scholarship.html" class="nav-link"><span class="material-icons">workspace_premium</span> Scholarship</a></li>
+                        <li><a href="Probation.html" class="nav-link"><span class="material-icons">warning_amber</span> Probation</a></li>
+                        <li><a href="faq.html" class="nav-link active"><span class="material-icons">help_outline</span> FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="nav-group">
+                    <div class="nav-group-label">Support</div>
+                    <ul>
+                        <li><a href="contact-me.html" class="nav-link"><span class="material-icons">mail_outline</span> Contact</a></li>
+                    </ul>
+                </div>
             </nav>
+
+            <div class="sidebar-footer">
+                <a href="login.html" id="logout-btn" class="nav-link logout-link"><span class="material-icons">logout</span> Logout</a>
+            </div>
         </aside>
 
-        <main class="main-content">
-            <section class="faq-section">
-                <h2><span class="material-icons">help_outline</span> Frequently Asked Questions</h2>
-                <p>Find quick answers to common academic questions</p>
+        <div class="main-wrap" style="flex:1; min-width:0;">
+            <header class="topbar">
+                <button class="hamburger-btn" aria-label="Open navigation menu" aria-expanded="false">
+                    <span class="material-icons">menu</span>
+                </button>
+                <div class="page-title-block">
+                    <span class="crumb">FYAT</span>
+                    <h1>FAQ</h1>
+                </div>
+                <div class="topbar-spacer"></div>
+                <div class="topbar-actions">
+                    <span class="status-pill"><span class="status-dot"></span> Active</span>
+                    <button class="icon-btn theme-toggle" aria-label="Toggle dark mode" aria-pressed="false">
+                        <span class="material-icons icon-only-light">dark_mode</span>
+                        <span class="material-icons icon-only-dark">light_mode</span>
+                    </button>
+                </div>
+            </header>
+
+            <main class="main-content" id="main">
+                <div class="page-head">
+                    <h2><span class="material-icons">help_outline</span> Frequently Asked Questions</h2>
+                    <p>Find quick answers to common academic questions</p>
+                </div>
 
                 <div class="faq-controls">
-                    <input type="text" id="faq-search" placeholder="Search FAQs...">
+                    <div class="search-wrap">
+                        <span class="material-icons">search</span>
+                        <input type="text" id="faq-search" placeholder="Search FAQs...">
+                    </div>
                     <div class="category-filters">
                         <button class="filter-btn active" data-category="all">All Categories</button>
                         <button class="filter-btn" data-category="Advising">Advising</button>
@@ -59,7 +113,7 @@
                             <span class="material-icons expand-icon">expand_more</span>
                         </div>
                         <div class="faq-answer collapsible-content">
-                            <p>You can register for courses through the BRAC University SLMS Portal - Connect during the official registration period.Check the procedure at academic advising panel in "Academic Procedures" page.</p>
+                            <p>You can register for courses through the BRAC University SLMS Portal - Connect during the official registration period. Check the procedure at academic advising panel in "Academic Procedures" page.</p>
                         </div>
                     </div>
 
@@ -81,7 +135,7 @@
                             <span class="material-icons expand-icon">expand_more</span>
                         </div>
                         <div class="faq-answer collapsible-content">
-                            <p>You can pay your tuition fees via both online and offline. Payment procedure is mentioned at at payment procedure panel in "Academic Procedures" page.</p>
+                            <p>You can pay your tuition fees via both online and offline. Payment procedure is mentioned at payment procedure panel in "Academic Procedures" page.</p>
                         </div>
                     </div>
 
@@ -92,7 +146,7 @@
                             <span class="material-icons expand-icon">expand_more</span>
                         </div>
                         <div class="faq-answer collapsible-content">
-                            <p>If you lose your student ID card, you should immediately report it to the Student Information Center & DCO ma'am and apply for a duplicate. There might be a processing fee.</p>
+                            <p>If you lose your student ID card, you should immediately report it to the Student Information Center &amp; DCO ma'am and apply for a duplicate. There might be a processing fee.</p>
                         </div>
                     </div>
 
@@ -117,7 +171,7 @@
                             <span class="material-icons expand-icon">expand_more</span>
                         </div>
                         <div class="faq-answer collapsible-content">
-                            <p><img src="cgpa.png"></p>
+                            <p><img src="cgpa.png" alt="GPA calculation formula"></p>
                         </div>
                     </div>
 
@@ -128,7 +182,7 @@
                             <span class="material-icons expand-icon">expand_more</span>
                         </div>
                         <div class="faq-answer collapsible-content">
-                            <p>Failure to pay fees on time may result in late payment penalties [at a rate of Tk.100 per day], blocking of academic services (e.g., advising hold, access to grades) . You may apply for installment payment. Contact the Accounts Office immediately if you face difficulties.</p>
+                            <p>Failure to pay fees on time may result in late payment penalties [at a rate of Tk.100 per day], blocking of academic services (e.g., advising hold, access to grades). You may apply for installment payment. Contact the Accounts Office immediately if you face difficulties.</p>
                         </div>
                     </div>
 
@@ -140,7 +194,7 @@
                         </div>
                         <div class="faq-answer collapsible-content">
                             <p>A student may be granted leave of absence or semester drop for a period of up to three consecutive semesters or one academic year, subject to the student meeting academic requirements. This arrangement does not apply to students who received academic probation or who have been expelled from the university on disciplinary grounds or excluded on academic grounds. The decision to grant leave of absence will rest with the Dean or Head of Department in consultation with the Registrar. A student granted leave of absence must register in the following semester immediately after the expiry of the leave period. <br><br>
-                                <i>Talk to DCO ma'am regarding this issue.</i> </p>
+                                <i>Talk to DCO ma'am regarding this issue.</i></p>
                         </div>
                     </div>
 
@@ -162,7 +216,7 @@
                             <span class="material-icons expand-icon">expand_more</span>
                         </div>
                         <div class="faq-answer collapsible-content">
-                            <p>As first-semester students, you do not need to confirm your course advising. The Registrar’s Office will automatically complete the course selection process for all new students and for those selected for the Residential Semester (RS). </p>
+                            <p>As first-semester students, you do not need to confirm your course advising. The Registrar's Office will automatically complete the course selection process for all new students and for those selected for the Residential Semester (RS).</p>
                         </div>
                     </div>
 
@@ -173,7 +227,7 @@
                             <span class="material-icons expand-icon">expand_more</span>
                         </div>
                         <div class="faq-answer collapsible-content">
-                            <p>The full process in mentioned in <a href="academic-procedures.html">"Academic Procedures"</a> page. </p>
+                            <p>The full process in mentioned in <a href="academic-procedures.html">"Academic Procedures"</a> page.</p>
                         </div>
                     </div>
 
@@ -184,7 +238,7 @@
                             <span class="material-icons expand-icon">expand_more</span>
                         </div>
                         <div class="faq-answer collapsible-content">
-                            <p>The full process in mentioned in <a href="academic-procedures.html">"Academic Procedures"</a> page. </p>
+                            <p>The full process in mentioned in <a href="academic-procedures.html">"Academic Procedures"</a> page.</p>
                         </div>
                     </div>
 
@@ -195,7 +249,7 @@
                             <span class="material-icons expand-icon">expand_more</span>
                         </div>
                         <div class="faq-answer collapsible-content">
-                            <p>The full process in mentioned in <a href="academic-procedures.html">"Academic Procedures"</a> page. </p>
+                            <p>The full process in mentioned in <a href="academic-procedures.html">"Academic Procedures"</a> page.</p>
                         </div>
                     </div>
 
@@ -206,27 +260,32 @@
                             <span class="material-icons expand-icon">expand_more</span>
                         </div>
                         <div class="faq-answer collapsible-content">
-                            <p>BRAC University uses a letter grading system with corresponding grade points. <br>
-                                </p>
-                                <div class="grade-scale">
+                            <p>BRAC University uses a letter grading system with corresponding grade points.</p>
+                            <div class="grade-scale">
                                 <h3>Grade Scale</h3>
                                 <table>
-                                    <tr><td>A+</td><td>97.00-100</td><td>4</td><td> Exceptional</td></tr>
-                                    <tr><td>A</td><td>89.50-96.99</td><td>4</td><td> Excellent</td></tr>
+                                    <tr><td>A+</td><td>97.00-100</td><td>4</td><td>Exceptional</td></tr>
+                                    <tr><td>A</td><td>89.50-96.99</td><td>4</td><td>Excellent</td></tr>
                                     <tr><td>A-</td><td>84.50-89.49</td><td>3.7</td><td></td></tr>
                                     <tr><td>B+</td><td>79.50-84.49</td><td>3.3</td><td></td></tr>
-                                    <tr><td>B</td><td>74.50-79.49</td><td>3.0</td><td> Good</td></tr>
+                                    <tr><td>B</td><td>74.50-79.49</td><td>3.0</td><td>Good</td></tr>
                                     <tr><td>B-</td><td>69.50-74.49</td><td>2.7</td><td></td></tr>
                                     <tr><td>C+</td><td>64.50-69.49</td><td>2.3</td><td></td></tr>
-                                    <tr><td>C</td><td>59.50-64.49</td><td>2.0</td><td> Fair</td></tr>
+                                    <tr><td>C</td><td>59.50-64.49</td><td>2.0</td><td>Fair</td></tr>
                                     <tr><td>C-</td><td>57.00-59.49</td><td>1.7</td><td></td></tr>
-                                    <tr><td>D+</td><td>55.00-56.99</td><td>1.3</td><td> </td></tr>
-                                    <tr><td>D</td><td>52.00-55.00</td><td>1.0</td><td> Poor</td></tr>
-                                    <tr><td>D-</td><td>50.00-52.00</td><td>0.7</td><td> </td></tr>
-                                    <tr><td>F</td><td>0.00-50.00</td><td>0.0</td><td> Failure</td></tr>
+                                    <tr><td>D+</td><td>55.00-56.99</td><td>1.3</td><td></td></tr>
+                                    <tr><td>D</td><td>52.00-55.00</td><td>1.0</td><td>Poor</td></tr>
+                                    <tr><td>D-</td><td>50.00-52.00</td><td>0.7</td><td></td></tr>
+                                    <tr><td>F</td><td>0.00-50.00</td><td>0.0</td><td>Failure</td></tr>
                                 </table>
                             </div>
                         </div>
+                    </div>
+
+                    <div class="faq-empty-state" id="faq-empty-state">
+                        <span class="material-icons">search_off</span>
+                        <h4>No results found</h4>
+                        <p>Try searching with another keyword or choose a different category.</p>
                     </div>
                 </div>
 
@@ -257,8 +316,30 @@
                         </div>
                     </div>
                 </section>
-            </section>
-        </main>
+
+                <footer class="site-footer">
+                    <div class="footer-brand">
+                        <strong>FYAT </strong>
+                        <span>Your Academic Supporter</span>
+                    </div>
+                    <nav class="footer-links">
+                        <a href="https://bracu-vault.vercel.app/" target="_blank">Academic Resources</a>
+                        <a href="contact-me.html">Contact Mentor</a>
+                        <a href="faq.html">FAQ</a>
+                    </nav>
+                    <div class="footer-credit">© FYAT - a personal mentor project by MD Shazzad Ahammed Shuvo. Not officially affiliated with Brac University.</div>
+                </footer>
+            </main>
+        </div>
+    </div>
+
+    <div id="disclaimerModal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="disclaimerTitle">
+        <div class="modal-content">
+            <div class="modal-icon"><span class="material-icons">info</span></div>
+            <h2 id="disclaimerTitle">Disclaimer</h2>
+            <p>This website is a personal project by MD Shazzad Ahammed Shuvo, an FYAT mentor, and is not officially affiliated with Brac University. The information provided is for general guidance only and may not always be up-to-date or accurate. For official and accurate information, please always refer to Brac University's official website and resources.</p>
+            <button id="closeModalBtn" class="btn">Got It!</button>
+        </div>
     </div>
 
     <script src="js/script.js"></script>
