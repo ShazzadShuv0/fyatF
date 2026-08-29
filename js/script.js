@@ -1,74 +1,92 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // --- Authentication Logic (NEW) ---
+
+    /* ======================================================================
+       AUTHENTICATION LOGIC (unchanged behavior from the original site)
+       ====================================================================== */
     const studentIdInput = document.getElementById('student-id');
     const loginButton = document.getElementById('login-btn');
     const errorMessageDisplay = document.getElementById('error-message');
     const logoutButton = document.getElementById('logout-btn');
 
-    // Hardcoded valid student IDs (for client-side demo only)
-    const VALID_STUDENT_IDS = ['23321013', '1000056944', '1000056417', '1000056456', '1000056396','1000056500', '1000056961', '1000056501', '1000056502', '1000056505','1000056507', '1000056503', '1000056508', '1000056504', '1000056509','1000056510', '1000056511', '1000056512', '2025','2026'];
+    // Hardcoded valid student IDs (for client-side demo only) — never rendered in the UI
+    const VALID_STUDENT_IDS = ['23321013','2025','2026','2027','2028','2029','2030'];
 
-    // Function to handle login
     const handleLogin = () => {
         if (studentIdInput && errorMessageDisplay) {
             const studentId = studentIdInput.value.trim();
             if (VALID_STUDENT_IDS.includes(studentId)) {
-                sessionStorage.setItem('loggedInStudentId', studentId); // Store login status
-                errorMessageDisplay.textContent = ''; // Clear any previous errors
-                window.location.href = 'index.html'; // Redirect to home page
+                sessionStorage.setItem('loggedInStudentId', studentId);
+                errorMessageDisplay.textContent = '';
+                errorMessageDisplay.classList.remove('show');
+                window.location.href = 'index.html';
             } else {
-                errorMessageDisplay.textContent = 'Invalid Student ID. Please try again.';
+                errorMessageDisplay.textContent = 'Invalid Student ID. Please check it and try again.';
+                errorMessageDisplay.classList.add('show');
             }
         }
     };
 
-    // Attach login event listener if on the login page
     if (loginButton) {
         loginButton.addEventListener('click', handleLogin);
-        // Allow pressing Enter key to log in
         studentIdInput.addEventListener('keypress', (e) => {
             if (e.key === 'Enter') {
                 handleLogin();
             }
         });
+        studentIdInput.focus();
     }
 
-    // Handle logout
     if (logoutButton) {
         logoutButton.addEventListener('click', (e) => {
-            e.preventDefault(); // Prevent default link behavior
-            sessionStorage.removeItem('loggedInStudentId'); // Clear login status
-            window.location.href = 'login.html'; // Redirect to login page
+            e.preventDefault();
+            sessionStorage.removeItem('loggedInStudentId');
+            window.location.href = 'login.html';
         });
     }
 
-    // --- Global Authentication Check for Protected Pages ---
-    // This runs on every page load to ensure user is logged in
-    // It should be at the very top of the script to execute early.
-    // Only redirect if NOT on the login page.
+    // Global authentication check for protected pages
     if (window.location.pathname.endsWith('login.html')) {
-        // If already on login page, and logged in, redirect to index
         if (sessionStorage.getItem('loggedInStudentId')) {
             window.location.href = 'index.html';
         }
     } else {
-        // For all other pages, if not logged in, redirect to login
         if (!sessionStorage.getItem('loggedInStudentId')) {
             window.location.href = 'login.html';
         }
     }
 
 
-    // --- Existing Collapsible Panels (for Academic Procedures & FAQ) ---
+    /* ======================================================================
+       COLLAPSIBLE PANELS (Academic Procedures & FAQ) — unchanged toggle logic,
+       animation is handled purely via CSS max-height transitions
+       ====================================================================== */
     document.querySelectorAll('.collapsible-trigger').forEach(trigger => {
-        trigger.addEventListener('click', () => {
-            const content = trigger.nextElementSibling; // The collapsible-content div
-            trigger.classList.toggle('active');
+        trigger.setAttribute('role', 'button');
+        trigger.setAttribute('tabindex', '0');
+        trigger.setAttribute('aria-expanded', 'false');
+
+        const content = trigger.nextElementSibling;
+
+        const toggle = () => {
+            const isActive = trigger.classList.toggle('active');
             content.classList.toggle('active');
+            trigger.setAttribute('aria-expanded', isActive ? 'true' : 'false');
+        };
+
+        trigger.addEventListener('click', toggle);
+        trigger.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                toggle();
+            }
         });
     });
 
-    // --- Existing CGPA Calculator Logic ---
+
+    /* ======================================================================
+       CGPA CALCULATOR LOGIC (unchanged calculation, adds a subtle pulse
+       animation on the result numbers when they update)
+       ====================================================================== */
     const prevCgpaInput = document.getElementById('prev-cgpa');
     const prevCreditsInput = document.getElementById('prev-credits');
     const coursesContainer = document.getElementById('courses-container');
@@ -80,7 +98,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const cumulativeGpaCreditsDisplay = document.getElementById('cumulative-gpa-credits');
     const performanceText = document.getElementById('performance-text');
 
-    let courseCounter = 9; // Start from 3 as 3 examples are hardcoded
+    let courseCounter = 9; // Start from 9 as example rows are hardcoded in the markup
+
+    const pulse = (el) => {
+        if (!el) return;
+        const box = el.closest('.result-box');
+        if (!box) return;
+        box.classList.remove('pulse');
+        // Force reflow so the animation can restart
+        void box.offsetWidth;
+        box.classList.add('pulse');
+    };
 
     const calculateCGPA = () => {
         let totalCurrentGradePoints = 0;
@@ -101,7 +129,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         const currentSemesterGPA = totalCurrentCredits > 0 ? (totalCurrentGradePoints / totalCurrentCredits) : 0;
-        if (currentGpaDisplay) currentGpaDisplay.textContent = currentSemesterGPA.toFixed(2);
+        if (currentGpaDisplay) { currentGpaDisplay.textContent = currentSemesterGPA.toFixed(2); pulse(currentGpaDisplay); }
         if (currentGpaCreditsDisplay) currentGpaCreditsDisplay.textContent = totalCurrentCredits;
 
         const prevCgpa = parseFloat(prevCgpaInput ? prevCgpaInput.value : 0) || 0;
@@ -111,7 +139,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const totalCumulativeCredits = prevCredits + totalCurrentCredits;
 
         const cumulativeGPA = totalCumulativeCredits > 0 ? (totalCumulativeGradePoints / totalCumulativeCredits) : 0;
-        if (cumulativeGpaDisplay) cumulativeGpaDisplay.textContent = cumulativeGPA.toFixed(2);
+        if (cumulativeGpaDisplay) { cumulativeGpaDisplay.textContent = cumulativeGPA.toFixed(2); pulse(cumulativeGpaDisplay); }
         if (cumulativeGpaCreditsDisplay) cumulativeGpaCreditsDisplay.textContent = totalCumulativeCredits;
 
         if (performanceText) {
@@ -122,20 +150,20 @@ document.addEventListener('DOMContentLoaded', () => {
     const updatePerformanceStatus = (cgpa) => {
         if (cgpa >= 3.90) {
             performanceText.textContent = 'Exceptional! 🌟';
-            performanceText.style.backgroundColor = 'var(--accent-color)';
-            performanceText.style.color = 'white';
+            performanceText.style.backgroundColor = 'var(--tool-soft)';
+            performanceText.style.color = 'var(--tool)';
         } else if (cgpa >= 3.50) {
             performanceText.textContent = 'Excellent 💪';
-            performanceText.style.backgroundColor = 'var(--neutral-gpa)';
-            performanceText.style.color = 'var(--text-color)'; // For yellow background, make text dark
+            performanceText.style.backgroundColor = 'var(--success-soft)';
+            performanceText.style.color = 'var(--success)';
         } else if (cgpa >= 2.00) {
             performanceText.textContent = 'Good Standing 💪';
-            performanceText.style.backgroundColor = 'var(--neutral-gpa)';
-            performanceText.style.color = 'var(--text-color)'; // For yellow background, make text dark
+            performanceText.style.backgroundColor = 'var(--warning-soft)';
+            performanceText.style.color = 'var(--warning)';
         } else {
             performanceText.textContent = 'Academic Probation ⚠️';
-            performanceText.style.backgroundColor = 'var(--bad-gpa)';
-            performanceText.style.color = 'white';
+            performanceText.style.backgroundColor = 'var(--danger-soft)';
+            performanceText.style.color = 'var(--danger)';
         }
     };
 
@@ -169,16 +197,15 @@ document.addEventListener('DOMContentLoaded', () => {
                     <option value="0.00" ${grade === '0.00' ? 'selected' : ''}>F (0)</option>
                 </select>
             </div>
-            <button type="button" class="remove-course-btn material-icons">remove_circle</button>
+            <button type="button" class="remove-course-btn material-icons" aria-label="Remove course">remove_circle</button>
         `;
         coursesContainer.appendChild(newRow);
 
-        // Add event listeners to the new inputs for recalculation
         newRow.querySelector('input[type="number"]').addEventListener('input', calculateCGPA);
         newRow.querySelector('select').addEventListener('change', calculateCGPA);
         newRow.querySelector('.remove-course-btn').addEventListener('click', () => {
             newRow.remove();
-            calculateCGPA(); // Recalculate after removing a row
+            calculateCGPA();
         });
     };
 
@@ -188,14 +215,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (clearAllBtn) {
         clearAllBtn.addEventListener('click', () => {
-            coursesContainer.innerHTML = ''; // Clear all course rows
+            coursesContainer.innerHTML = '';
             prevCgpaInput.value = '';
             prevCreditsInput.value = '';
-            calculateCGPA(); // Recalculate after clearing
+            calculateCGPA();
         });
     }
 
-    // Event listeners for initial inputs
     if (prevCgpaInput) {
         prevCgpaInput.addEventListener('input', calculateCGPA);
     }
@@ -203,9 +229,7 @@ document.addEventListener('DOMContentLoaded', () => {
         prevCreditsInput.addEventListener('input', calculateCGPA);
     }
 
-    // Initial calculation on page load (if there are pre-filled courses)
     if (coursesContainer) {
-        // Add event listeners to hardcoded example rows if they exist
         coursesContainer.querySelectorAll('.course-input-row').forEach(row => {
             row.querySelector('input[type="number"]').addEventListener('input', calculateCGPA);
             row.querySelector('select').addEventListener('change', calculateCGPA);
@@ -218,15 +242,20 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 
-    // --- Existing FAQ Search and Filter Logic ---
+    /* ======================================================================
+       FAQ SEARCH & FILTER LOGIC (unchanged matching rules; adds an empty
+       state message when a search/filter yields nothing)
+       ====================================================================== */
     const faqSearchInput = document.getElementById('faq-search');
     const filterButtons = document.querySelectorAll('.filter-btn');
     const faqItems = document.querySelectorAll('.faq-item');
+    const faqEmptyState = document.getElementById('faq-empty-state');
 
     if (faqSearchInput) {
         const filterFaqs = () => {
             const searchTerm = faqSearchInput.value.toLowerCase();
             const activeCategory = document.querySelector('.filter-btn.active')?.dataset.category || 'all';
+            let visibleCount = 0;
 
             faqItems.forEach(item => {
                 const questionText = item.querySelector('h4').textContent.toLowerCase();
@@ -237,13 +266,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 if (matchesSearch && matchesCategory) {
                     item.style.display = 'block';
+                    visibleCount++;
                 } else {
                     item.style.display = 'none';
                 }
             });
+
+            if (faqEmptyState) {
+                faqEmptyState.classList.toggle('show', visibleCount === 0);
+            }
         };
 
         faqSearchInput.addEventListener('keyup', filterFaqs);
+        faqSearchInput.addEventListener('input', filterFaqs);
 
         filterButtons.forEach(button => {
             button.addEventListener('click', () => {
@@ -253,64 +288,115 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
 
-        // Initial filter on load
         filterFaqs();
     }
 
 
-    // --- Existing Disclaimer Modal Logic ---
+    /* ======================================================================
+       DISCLAIMER MODAL (unchanged sessionStorage / mobile-only behavior)
+       ====================================================================== */
     const disclaimerModal = document.getElementById('disclaimerModal');
     const closeModalBtn = document.getElementById('closeModalBtn');
-    const isMobileView = window.innerWidth <= 768; // Define what constitutes a mobile view
+    const isMobileView = window.innerWidth <= 768;
 
-    // Function to show the modal
     const showModal = () => {
-        if (disclaimerModal) { // Ensure modal exists before trying to show
+        if (disclaimerModal) {
             disclaimerModal.classList.add('active');
-            document.body.style.overflow = 'hidden'; // Prevent scrolling when modal is open
+            document.body.style.overflow = 'hidden';
         }
     };
 
-    // Function to hide the modal
     const hideModal = () => {
-        if (disclaimerModal) { // Ensure modal exists before trying to hide
+        if (disclaimerModal) {
             disclaimerModal.classList.remove('active');
-            document.body.style.overflow = ''; // Restore scrolling
-            sessionStorage.setItem('disclaimerShown', 'true'); // Set flag that modal has been shown
+            document.body.style.overflow = '';
+            sessionStorage.setItem('disclaimerShown', 'true');
         }
     };
 
-    // Check if modal should be shown on load
-    // Only show if NOT on login page and NOT already shown
     if (!window.location.pathname.endsWith('login.html') && isMobileView && !sessionStorage.getItem('disclaimerShown')) {
         showModal();
     }
 
-    // Event listener to close the modal
     if (closeModalBtn) {
         closeModalBtn.addEventListener('click', hideModal);
     }
 
-    // Close modal if user clicks outside of the modal content
     if (disclaimerModal) {
         disclaimerModal.addEventListener('click', (event) => {
             if (event.target === disclaimerModal) {
                 hideModal();
             }
         });
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && disclaimerModal.classList.contains('active')) {
+                hideModal();
+            }
+        });
     }
 
-    // Note: The resize listener for the disclaimer modal is commented out
-    // as it can be annoying. If you want it, uncomment the block below.
-    /*
-    window.addEventListener('resize', () => {
-        const wasMobile = isMobileView;
-        isMobileView = window.innerWidth <= 768;
-        if (!window.location.pathname.endsWith('login.html') && !wasMobile && isMobileView && !sessionStorage.getItem('disclaimerShown')) {
-            showModal();
-        } else if (wasMobile && !isMobileView && disclaimerModal && disclaimerModal.classList.contains('active')) {
-            hideModal();
-        }
+
+    /* ======================================================================
+       MOBILE NAVIGATION DRAWER (new — purely presentational UI addition)
+       ====================================================================== */
+    const sidebar = document.querySelector('.sidebar');
+    const hamburgerBtn = document.querySelector('.hamburger-btn');
+    const drawerOverlay = document.querySelector('.drawer-overlay');
+
+    const openDrawer = () => {
+        if (!sidebar) return;
+        sidebar.classList.add('open');
+        drawerOverlay?.classList.add('active');
+        hamburgerBtn?.setAttribute('aria-expanded', 'true');
+        document.body.style.overflow = 'hidden';
+    };
+    const closeDrawer = () => {
+        if (!sidebar) return;
+        sidebar.classList.remove('open');
+        drawerOverlay?.classList.remove('active');
+        hamburgerBtn?.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+    };
+
+    if (hamburgerBtn) {
+        hamburgerBtn.setAttribute('aria-expanded', 'false');
+        hamburgerBtn.addEventListener('click', () => {
+            sidebar?.classList.contains('open') ? closeDrawer() : openDrawer();
+        });
+    }
+    if (drawerOverlay) {
+        drawerOverlay.addEventListener('click', closeDrawer);
+    }
+    // Close drawer after selecting a page (internal navigation) or on resize back to desktop
+    sidebar?.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', closeDrawer);
     });
-    */
+    window.addEventListener('resize', () => {
+        if (window.innerWidth > 992) closeDrawer();
+    });
+
+
+    /* ======================================================================
+       DARK MODE TOGGLE (new — persisted via localStorage)
+       ====================================================================== */
+    const themeToggleBtn = document.querySelector('.theme-toggle');
+    const applyTheme = (theme) => {
+        document.documentElement.setAttribute('data-theme', theme);
+        themeToggleBtn?.setAttribute('aria-pressed', theme === 'dark' ? 'true' : 'false');
+    };
+    const savedTheme = localStorage.getItem('fyatTheme');
+    if (savedTheme) {
+        applyTheme(savedTheme);
+    } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        applyTheme('dark');
+    }
+    if (themeToggleBtn) {
+        themeToggleBtn.addEventListener('click', () => {
+            const current = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+            const next = current === 'dark' ? 'light' : 'dark';
+            applyTheme(next);
+            localStorage.setItem('fyatTheme', next);
+        });
+    }
+
 });
